@@ -8,12 +8,11 @@ import com.example.tripease.dto.request.CabRequest;
 import com.example.tripease.dto.response.CabResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
 public class CabService {
-        @Autowired
+    @Autowired
     DriverRepository driverRepository;
     public CabResponse register(CabRequest cabRequest, int driverId) {
 //        First step is to verify that a driver exists or not.
@@ -28,4 +27,5 @@ public class CabService {
         return CabTransformer.cabToCabResponse(savedDriver.getCab(), savedDriver);
     }
 }
+
 

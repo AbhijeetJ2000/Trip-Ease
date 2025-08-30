@@ -17,7 +17,7 @@ public class CabTransformer {
 
     public static CabResponse cabToCabResponse(Cab cab, Driver driver) {
         return CabResponse.builder()
-                .cab_model(cab.getCab_model())
+                .cab_number(cab.getCab_number())
                 .per_km_rate(cab.getPer_km_rate())
                 .cab_model(cab.getCab_model())
                 .available(cab.isAvailable())
@@ -25,3 +25,5 @@ public class CabTransformer {
                 .build();
     }
 }
+
+

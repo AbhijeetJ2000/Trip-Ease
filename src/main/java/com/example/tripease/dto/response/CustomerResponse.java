@@ -13,5 +13,3 @@ public class CustomerResponse {
     private String emailId;
 }
 
-
-

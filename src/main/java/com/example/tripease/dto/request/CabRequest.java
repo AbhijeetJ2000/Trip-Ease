@@ -14,6 +14,5 @@ public class CabRequest {
     private String cab_model;
     private double per_km_rate;
     private boolean available;
-    private DriverResponse driver;
 }
 

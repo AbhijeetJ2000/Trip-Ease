@@ -15,5 +15,3 @@ public class CabResponse {
     private DriverResponse driver;
 }
 
-
-

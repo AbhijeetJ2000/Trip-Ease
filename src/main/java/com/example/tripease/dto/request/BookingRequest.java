@@ -15,5 +15,3 @@ public class BookingRequest {
     private double tripDistanceInKm;
 }
 
-
-

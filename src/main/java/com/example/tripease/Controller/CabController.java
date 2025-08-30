@@ -1,5 +1,4 @@
 package com.example.tripease.Controller;
-import com.example.tripease.Model.Cab;
 import com.example.tripease.Service.CabService;
 import com.example.tripease.dto.request.CabRequest;
 import com.example.tripease.dto.response.CabResponse;

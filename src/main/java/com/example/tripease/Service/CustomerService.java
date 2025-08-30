@@ -34,7 +34,6 @@ public class CustomerService {
         if(optionalCustomer.isEmpty()){
             throw new CustomerNotFoundException("Invalid Customer Id");
         }
-
         Customer savedCustomer = optionalCustomer.get();
 //      Saved Entity -> Response DTO
         return customerTransformer.customerToCustomerResponse(savedCustomer);

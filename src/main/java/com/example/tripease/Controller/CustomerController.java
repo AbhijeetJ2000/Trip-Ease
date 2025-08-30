@@ -1,12 +1,10 @@
 package com.example.tripease.Controller;
-
 import com.example.tripease.Enum.Gender;
 import com.example.tripease.Service.CustomerService;
 import com.example.tripease.dto.request.CustomerRequest;
 import com.example.tripease.dto.response.CustomerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -42,8 +40,5 @@ public class CustomerController {
         return customerService.getAllByGenderAndAgeGreaterBy(gender, age);
     }
 }
-
-
-
 
 

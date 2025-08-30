@@ -13,11 +13,13 @@ import com.example.tripease.Repository.DriverRepository;
 import com.example.tripease.Transformer.BookingTransformer;
 import com.example.tripease.dto.request.BookingRequest;
 import com.example.tripease.dto.response.BookingResponse;
+import com.example.tripease.dto.response.DriverStatisticsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -38,6 +40,7 @@ public class BookingService {
     JavaMailSender javaMailSender;
 
     public BookingResponse bookCab(BookingRequest bookingRequest, int customerId) {
+//        First we will check if there is a valid customer
         Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
         if(optionalCustomer.isEmpty()){
             throw new CustomerNotFoundException("Invalid Customer Id");
@@ -46,7 +49,7 @@ public class BookingService {
 //        We will find all the cabs that are available.
         Cab availableCab = cabRepository.getAvailableCabRandomly();
         if(availableCab == null){
-            throw new CabUnavailableException("Sorry No Cabs Availabel");
+            throw new CabUnavailableException("Sorry No Cabs Available");
         }
         Booking booking = BookingTransformer.BookingRequestToBooking(bookingRequest, availableCab.getPer_km_rate());
         Booking savedBooking = bookingRepository.save(booking);

@@ -25,6 +25,7 @@ public class Driver {
 
     @Column(unique = true, nullable = false)
     private String emailId;
+    @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -35,5 +36,6 @@ public class Driver {
     @JoinColumn(name = "cab_id")
     private Cab cab;
 }
+
 
 

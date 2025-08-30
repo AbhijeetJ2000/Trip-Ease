@@ -10,6 +10,7 @@ public class DriverTransformer {
                 .name(driverRequest.getName())
                 .age(driverRequest.getAge())
                 .emailId(driverRequest.getEmailId())
+                .gender(driverRequest.getGender())
                 .build();
     }
 

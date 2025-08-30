@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.util.Date;
 
 @NoArgsConstructor
@@ -15,7 +14,6 @@ import java.util.Date;
 @Entity
 @Builder
 public class Booking {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookingId;
@@ -35,4 +33,7 @@ public class Booking {
     @UpdateTimestamp
     Date lastUpdatedAt;
 }
+
+
+
 
