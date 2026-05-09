@@ -14,6 +14,7 @@ import com.example.tripease.Transformer.BookingTransformer;
 import com.example.tripease.dto.request.BookingRequest;
 import com.example.tripease.dto.response.BookingResponse;
 import com.example.tripease.dto.response.DriverStatisticsResponse;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -39,6 +40,7 @@ public class BookingService {
     @Autowired
     JavaMailSender javaMailSender;
 
+    @Transactional
     public BookingResponse bookCab(BookingRequest bookingRequest, int customerId) {
 //        First we will check if there is a valid customer
         Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
