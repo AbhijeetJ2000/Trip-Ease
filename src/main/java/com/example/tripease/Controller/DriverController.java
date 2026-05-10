@@ -4,6 +4,8 @@ import com.example.tripease.dto.request.DriverRequest;
 import com.example.tripease.dto.response.DriverResponse;
 import com.example.tripease.dto.response.DriverStatisticsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -25,6 +27,11 @@ public class DriverController {
 
         LocalDate localDate = LocalDate.parse(date);
         return driverService.getDriverStatisticsByBookedAt(driverId, localDate);
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteDriver(@PathVariable("id") Long id){
+        driverService.deleteDriver(id);
+        return new ResponseEntity<>("Driver Deleted Successfully", HttpStatus.OK);
     }
 }
 

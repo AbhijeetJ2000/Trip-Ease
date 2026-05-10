@@ -32,7 +32,7 @@ public class BookingTransformer {
                 .bookedAt(booking.getBookedAt())
                 .lastUpdatedAt(booking.getLastUpdatedAt())
                 .customer(customerTransformer.customerToCustomerResponse(customer))
-                .cab(CabTransformer.cabToCabResponse(cab, driver))
+                .cab(CabTransformer.cabToCabResponse(cab))
                 .build();
     }
 }

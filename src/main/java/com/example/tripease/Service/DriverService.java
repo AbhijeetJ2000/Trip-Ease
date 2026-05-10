@@ -1,5 +1,6 @@
 package com.example.tripease.Service;
 
+import com.example.tripease.Exception.DriverNotFoundException;
 import com.example.tripease.Model.Booking;
 import com.example.tripease.Model.Driver;
 import com.example.tripease.Repository.BookingRepository;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DriverService {
@@ -46,5 +48,16 @@ public class DriverService {
                 .total_distance_travelled(totalDistance)
                 .build();
     }
+
+    public void deleteDriver(Long driverId) {
+        Optional<Driver> driverOptional = driverRepository.findById(driverId);
+        if(driverOptional.isEmpty())
+            throw new DriverNotFoundException("Driver with id " + driverId + " not found.");
+        driverRepository.deleteById(driverId);
+    }
 }
+
+
+
+
 

@@ -15,13 +15,22 @@ public class CabTransformer {
                 .build();
     }
 
-    public static CabResponse cabToCabResponse(Cab cab, Driver driver) {
+    public static CabResponse cabToCabResponseWithDriver(Cab cab, Driver driver) {
         return CabResponse.builder()
                 .cab_number(cab.getCab_number())
                 .per_km_rate(cab.getPer_km_rate())
                 .cab_model(cab.getCab_model())
                 .available(cab.isAvailable())
                 .driver(DriverTransformer.driverToDriverResponse(driver))
+                .build();
+    }
+
+    public static CabResponse cabToCabResponse(Cab cab) {
+        return CabResponse.builder()
+                .cab_number(cab.getCab_number())
+                .per_km_rate(cab.getPer_km_rate())
+                .cab_model(cab.getCab_model())
+                .available(cab.isAvailable())
                 .build();
     }
 }
